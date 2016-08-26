@@ -12,6 +12,6 @@ var http = require('http')
 console.log(process.env.PORT);
 http.createServer(function(request,response){
 	response.writeHead(200,{"Content-Type":"text/plain"})
-	response.end("Book My dine at "+process.env.PORT)
+	response.end("Book My dine at "+process.env.PORT+"\n database:"+process.env.DATABASE_URL)
 	console.log(process.env.PORT);
 }).listen(process.env.PORT)
