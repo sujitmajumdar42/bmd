@@ -12,7 +12,7 @@ var nconf = require('nconf');
 nconf.argv().env().file({ file: 'config.json' });
 
 app.set('port', process.env.PORT || nconf.get('node:port'));
-app.set('www', __dirname + '/www');
+app.set('views', __dirname + '/views');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser("sdd", {signed: true}));
@@ -20,11 +20,11 @@ app.use(cookieParser("sdd", {signed: true}));
 var router = express.Router();
 
 app.use('/', router);
-app.get('/user',user.get);
-app.use('/',express.static(__dirname + '/www')); 
+app.use('/',express.static(__dirname + '/views')); 
 app.get('/', function(req, res) {
-    res.sendfile('./www/index.html');
+    res.sendfile('./views/index.html');
 });
+app.get('/user',user.get);
 
 http.createServer(app).listen(app.get('port'), function(){
 	console.log('Server listening on port ' + app.get('port'));

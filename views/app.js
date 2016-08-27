@@ -5,7 +5,7 @@ function DefaultController($http){
 	var vm = this;
 	vm.title = "sample title";
 	$http.get('../user').then(function(response){
-		vm.user = response.data;
+		vm.data = angular.toJson(response.data);
 	},function(err){
 		
 	});
