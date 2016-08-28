@@ -24,7 +24,7 @@ const config = {
   ssl: true
 };
 
-const pool = new pg.pool(config);
+var pool = new pg.Pool(config);
 
 function execQuery(query,params,onSuccess,onFail){
 	pool.connect(function(err, client, done) {
