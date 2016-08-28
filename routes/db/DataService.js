@@ -29,11 +29,16 @@ const pool = new Pool(config);
 exports.execQuery = function(query,params,onSuccess,onFail){
 	pool.connect(function(err, client, done) {
 		if(err) {
+			console.error("DB ERROR");
+			console.error(err);
 			onFail(err);
 		} else{
 			 client.query(query, params, function(err, result) {
 				 done();
 				 if(err) {
+					 console.error("QUERY ERROR");
+					 console.error(err);
+					 
 					 onFail(err);
 				 } else{
 					 onSuccess(result.rows);
