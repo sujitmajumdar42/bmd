@@ -1,4 +1,5 @@
 var pg = require('pg');
+const url = require('url')
 /*
 var config = {
   host: 'ec2-54-235-126-62.compute-1.amazonaws.com',

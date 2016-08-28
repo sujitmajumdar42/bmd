@@ -1,4 +1,4 @@
-var dataService = require("DataService");
+var dataService = require("../db/DataService");
 
 exports.get = function(req,res){
 	/* 
