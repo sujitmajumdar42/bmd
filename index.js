@@ -1,7 +1,7 @@
 var express = require('express')
   , bodyParser = require("body-parser")
   , cookieParser = require('cookie-parser')
-  , user = require('./routes/user.js')
+  , user = require('./routes/modules/user.js')
   , http = require('http')
   , path = require('path') ;
 
