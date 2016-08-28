@@ -1,4 +1,4 @@
-var pg = require('pg');
+const Pool = require('pg-pool');
 const url = require('url')
 /*
 var config = {
@@ -24,7 +24,7 @@ const config = {
   ssl: true
 };
 
-var pool = new pg.Pool(config);
+const pool = new Pool(config);
 
 function execQuery(query,params,onSuccess,onFail){
 	pool.connect(function(err, client, done) {
