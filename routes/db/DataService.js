@@ -26,7 +26,7 @@ const config = {
 
 const pool = new Pool(config);
 
-function execQuery(query,params,onSuccess,onFail){
+exports.execQuery = function(query,params,onSuccess,onFail){
 	pool.connect(function(err, client, done) {
 		if(err) {
 			onFail(err);
