@@ -1,17 +1,14 @@
 {
   "mysql": {
      "DEV"  : {
-    	 "host"		: 'ec2-54-235-126-62.compute-1.amazonaws.com',
-    	 "user"		: 'ctgtneynkjujkc', //env var: PGUSER 
-    	 "database"	: 'd7r2431hhuj925', //env var: PGDATABASE 
-    	 "password"	: 'rWYnpSPsp4boQB3zPLUAAiyZtv', //env var: PGPASSWORD 
-    	 "port"		: 5432, //env var: PGPORT 
-    	 "max"		: 100, // max number of clients in the pool 
-    	 "idleTimeoutMillis": 30000, // how long a client is allowed to remain idle before being closed 
-    	 "ssl"		: true
-     },
-     "PROD" : {
-    	 
+    	 "host"		: "ec2-54-235-126-62.compute-1.amazonaws.com",
+    	 "user"		: "ctgtneynkjujkc",  
+    	 "database"	: "d7r2431hhuj925",  
+    	 "password"	: "rWYnpSPsp4boQB3zPLUAAiyZtv",  
+    	 "port"		: 5432,  
+    	 "max"		: 100,  
+    	 "idleTimeoutMillis": 30000, 
+    	 "ssl"		: "true"
      }
   },
   "node": {
