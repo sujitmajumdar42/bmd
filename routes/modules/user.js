@@ -16,7 +16,7 @@ exports.get = function(req,res){
 	       }
 	    });
 	  });*/
-	dataService.execQuery('SELECT ? FROM user_details',['userid'],function(response){
+	dataService.execQuery('SELECT userid FROM user_details',function(response){
 		res.json(response);
 	},function(err){
 		res.json(err);

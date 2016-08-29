@@ -1,7 +1,7 @@
 const Pool = require('pg-pool');
 const url = require('url')
-/*
-var config = {
+
+var CONFIG_DEV = {
   host: 'ec2-54-235-126-62.compute-1.amazonaws.com',
   user: 'ctgtneynkjujkc', //env var: PGUSER 
   database: 'd7r2431hhuj925', //env var: PGDATABASE 
@@ -9,31 +9,32 @@ var config = {
   port: 5432, //env var: PGPORT 
   max: 100, // max number of clients in the pool 
   idleTimeoutMillis: 30000, // how long a client is allowed to remain idle before being closed 
-};*/
+  ssl: true
+};
 
 //var pool = new pg.Pool(config);
-const params = url.parse(process.env.DATABASE_URL);
+/*const params = url.parse(process.env.DATABASE_URL);
 const auth = params.auth.split(':');
 
-const config = {
+var CONFIG_PROD = {
   user: auth[0],
   password: auth[1],
   host: params.hostname,
   port: params.port,
   database: params.pathname.split('/')[1],
   ssl: true
-};
+};*/
 
-const pool = new Pool(config);
+const pool = new Pool(CONFIG_DEV);
 
-exports.execQuery = function(query,params,onSuccess,onFail){
+exports.execQuery = function(query,onSuccess,onFail){
 	pool.connect(function(err, client, done) {
 		if(err) {
 			console.error("DB ERROR");
 			console.error(err);
 			onFail(err);
 		} else{
-			 client.query(query, params, function(err, result) {
+			 client.query(query, function(err, result) {
 				 done();
 				 if(err) {
 					 console.error("QUERY ERROR");
