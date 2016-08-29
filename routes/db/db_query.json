@@ -1,0 +1,5 @@
+{
+  "USER_DETAILS" :{
+	  "FETCH_ALL" : "SELECT userid FROM user_details" 
+   }
+}
